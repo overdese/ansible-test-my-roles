@@ -4,26 +4,26 @@
 
 Vagrant.configure("2") do |config|
 
-    # config.vm.define "kwork-node", autostart: false do |kwork_node|
-    config.vm.define "kwork-node" do |kwork_node|
-      kwork_node.vm.hostname = "kwork-node"
-      kwork_node.vm.box = "ubuntu/jammy64" # 22.04
-      # kwork_node.vm.box = "debian/buster64" # 11
-      kwork_node.vm.box_check_update = false
-      kwork_node.vm.synced_folder ".", "/vagrant", disabled: true
-      kwork_node.vm.network "private_network", ip: "10.10.10.60"
-      # kwork_node.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
-      # kwork_node.vm.network "forwarded_port", guest: 80, host: 80
-      # kwork_node.vm.network "forwarded_port", guest: 9001, host: 9001
-      # kwork_node.ssh.host = 'localhost'
-      # kwork_node.vm.boot_timeout = 1800
+    # config.vm.define "ansible-base", autostart: false do |ansible_base|
+    config.vm.define "ansible-base" do |ansible_base|
+      ansible_base.vm.hostname = "ansible-base"
+      ansible_base.vm.box = "ubuntu/jammy64" # 22.04
+      # ansible_base.vm.box = "debian/buster64" # 11
+      ansible_base.vm.box_check_update = false
+      ansible_base.vm.synced_folder ".", "/vagrant", disabled: true
+      ansible_base.vm.network "private_network", ip: "10.10.10.60"
+      # ansible_base.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
+      # ansible_base.vm.network "forwarded_port", guest: 80, host: 80
+      # ansible_base.vm.network "forwarded_port", guest: 9001, host: 9001
+      # ansible_base.ssh.host = 'localhost'
+      # ansible_base.vm.boot_timeout = 1800
 
-      kwork_node.vm.provider "virtualbox" do |vb|
+      ansible_base.vm.provider "virtualbox" do |vb|
         # vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
         vb.customize ["modifyvm", :id, "--uart1", "0x3F8", "4"] # bug feezes 'SSH auth method: private key'
         vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL] # bug feezes 'SSH auth method: private key'
         # vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
-        vb.name = "v_kwork-node"
+        vb.name = "v_ansible-base"
         vb.cpus = 3
         vb.memory = "2000"
       end

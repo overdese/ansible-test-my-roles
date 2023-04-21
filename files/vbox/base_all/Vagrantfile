@@ -4,121 +4,121 @@
 
 Vagrant.configure("2") do |config|
 
-    # config.vm.define "kwork-u-2204", autostart: false do |kwork_u_2204|
-    config.vm.define "kwork-u-2204" do |kwork_u_2204|
-      kwork_u_2204.vm.hostname = "kwork-u-2204"
-      kwork_u_2204.vm.box = "ubuntu/jammy64"
-      kwork_u_2204.vm.box_check_update = false
-      kwork_u_2204.vm.synced_folder ".", "/vagrant", disabled: true
-      kwork_u_2204.vm.network "private_network", ip: "10.10.10.60"
-      # kwork_u_2204.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
-      # kwork_u_2204.vm.network "forwarded_port", guest: 80, host: 80
-      # kwork_u_2204.vm.network "forwarded_port", guest: 9001, host: 9001
-      # kwork_u_2204.ssh.host = 'localhost'
-      # kwork_u_2204.vm.boot_timeout = 1800
+    # config.vm.define "ansible-u-2204", autostart: false do |ansible_u_2204|
+    config.vm.define "ansible-u-2204" do |ansible_u_2204|
+      ansible_u_2204.vm.hostname = "ansible-u-2204"
+      ansible_u_2204.vm.box = "ubuntu/jammy64"
+      ansible_u_2204.vm.box_check_update = false
+      ansible_u_2204.vm.synced_folder ".", "/vagrant", disabled: true
+      ansible_u_2204.vm.network "private_network", ip: "10.10.10.60"
+      # ansible_u_2204.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
+      # ansible_u_2204.vm.network "forwarded_port", guest: 80, host: 80
+      # ansible_u_2204.vm.network "forwarded_port", guest: 9001, host: 9001
+      # ansible_u_2204.ssh.host = 'localhost'
+      # ansible_u_2204.vm.boot_timeout = 1800
 
-      kwork_u_2204.vm.provider "virtualbox" do |vb|
+      ansible_u_2204.vm.provider "virtualbox" do |vb|
         # vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
         vb.customize ["modifyvm", :id, "--uart1", "0x3F8", "4"] # bug feezes 'SSH auth method: private key'
         vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL] # bug feezes 'SSH auth method: private key'
         # vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
-        vb.name = "v_kwork-u-2204"
+        vb.name = "v_ansible-u-2204"
         vb.cpus = 3
         vb.memory = "2000"
       end
     end
 
-    # config.vm.define "kwork-u-2004", autostart: false do |kwork_u_2004|
-    config.vm.define "kwork-u-2004" do |kwork_u_2004|
-      kwork_u_2004.vm.hostname = "kwork-u-2004"
-      kwork_u_2004.vm.box = "ubuntu/focal64"
-      kwork_u_2004.vm.box_check_update = false
-      kwork_u_2004.vm.synced_folder ".", "/vagrant", disabled: true
-      kwork_u_2004.vm.network "private_network", ip: "10.10.10.61"
-      # kwork_u_2004.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
-      # kwork_u_2004.vm.network "forwarded_port", guest: 80, host: 80
-      # kwork_u_2004.vm.network "forwarded_port", guest: 9001, host: 9001
-      # kwork_u_2004.ssh.host = 'localhost'
-      # kwork_u_2004.vm.boot_timeout = 1800
+    # config.vm.define "ansible-u-2004", autostart: false do |ansible_u_2004|
+    config.vm.define "ansible-u-2004" do |ansible_u_2004|
+      ansible_u_2004.vm.hostname = "ansible-u-2004"
+      ansible_u_2004.vm.box = "ubuntu/focal64"
+      ansible_u_2004.vm.box_check_update = false
+      ansible_u_2004.vm.synced_folder ".", "/vagrant", disabled: true
+      ansible_u_2004.vm.network "private_network", ip: "10.10.10.61"
+      # ansible_u_2004.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
+      # ansible_u_2004.vm.network "forwarded_port", guest: 80, host: 80
+      # ansible_u_2004.vm.network "forwarded_port", guest: 9001, host: 9001
+      # ansible_u_2004.ssh.host = 'localhost'
+      # ansible_u_2004.vm.boot_timeout = 1800
 
-      kwork_u_2004.vm.provider "virtualbox" do |vb|
+      ansible_u_2004.vm.provider "virtualbox" do |vb|
         # vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
         vb.customize ["modifyvm", :id, "--uart1", "0x3F8", "4"] # bug feezes 'SSH auth method: private key'
         vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL] # bug feezes 'SSH auth method: private key'
         # vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
-        vb.name = "v_kwork-u-2004"
+        vb.name = "v_ansible-u-2004"
         vb.cpus = 3
         vb.memory = "2000"
       end
     end
 
-    # config.vm.define "kwork-u-1804", autostart: false do |kwork_u_1804|
-    config.vm.define "kwork-u-1804" do |kwork_u_1804|
-      kwork_u_1804.vm.hostname = "kwork-u-1804"
-      kwork_u_1804.vm.box = "ubuntu/bionic64"
-      kwork_u_1804.vm.box_check_update = false
-      kwork_u_1804.vm.synced_folder ".", "/vagrant", disabled: true
-      kwork_u_1804.vm.network "private_network", ip: "10.10.10.62"
-      # kwork_u_1804.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
-      # kwork_u_1804.vm.network "forwarded_port", guest: 80, host: 80
-      # kwork_u_1804.vm.network "forwarded_port", guest: 9001, host: 9001
-      # kwork_u_1804.ssh.host = 'localhost'
-      # kwork_u_1804.vm.boot_timeout = 1800
+    # config.vm.define "ansible-u-1804", autostart: false do |ansible_u_1804|
+    config.vm.define "ansible-u-1804" do |ansible_u_1804|
+      ansible_u_1804.vm.hostname = "ansible-u-1804"
+      ansible_u_1804.vm.box = "ubuntu/bionic64"
+      ansible_u_1804.vm.box_check_update = false
+      ansible_u_1804.vm.synced_folder ".", "/vagrant", disabled: true
+      ansible_u_1804.vm.network "private_network", ip: "10.10.10.62"
+      # ansible_u_1804.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
+      # ansible_u_1804.vm.network "forwarded_port", guest: 80, host: 80
+      # ansible_u_1804.vm.network "forwarded_port", guest: 9001, host: 9001
+      # ansible_u_1804.ssh.host = 'localhost'
+      # ansible_u_1804.vm.boot_timeout = 1800
 
-      kwork_u_1804.vm.provider "virtualbox" do |vb|
+      ansible_u_1804.vm.provider "virtualbox" do |vb|
         # vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
         vb.customize ["modifyvm", :id, "--uart1", "0x3F8", "4"] # bug feezes 'SSH auth method: private key'
         vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL] # bug feezes 'SSH auth method: private key'
         # vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
-        vb.name = "v_kwork-u-1804"
+        vb.name = "v_ansible-u-1804"
         vb.cpus = 3
         vb.memory = "2000"
       end
     end
 
-    # config.vm.define "kwork-d-11", autostart: false do |kwork_d_11|
-    config.vm.define "kwork-d-11" do |kwork_d_11|
-      kwork_d_11.vm.hostname = "kwork-d-11"
-      kwork_d_11.vm.box = "debian/bullseye64"
-      kwork_d_11.vm.box_check_update = false
-      kwork_d_11.vm.synced_folder ".", "/vagrant", disabled: true
-      kwork_d_11.vm.network "private_network", ip: "10.10.10.63"
-      # kwork_d_11.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
-      # kwork_d_11.vm.network "forwarded_port", guest: 80, host: 80
-      # kwork_d_11.vm.network "forwarded_port", guest: 9001, host: 9001
-      # kwork_d_11.ssh.host = 'localhost'
-      # kwork_d_11.vm.boot_timeout = 1800
+    # config.vm.define "ansible-d-11", autostart: false do |ansible_d_11|
+    config.vm.define "ansible-d-11" do |ansible_d_11|
+      ansible_d_11.vm.hostname = "ansible-d-11"
+      ansible_d_11.vm.box = "debian/bullseye64"
+      ansible_d_11.vm.box_check_update = false
+      ansible_d_11.vm.synced_folder ".", "/vagrant", disabled: true
+      ansible_d_11.vm.network "private_network", ip: "10.10.10.63"
+      # ansible_d_11.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
+      # ansible_d_11.vm.network "forwarded_port", guest: 80, host: 80
+      # ansible_d_11.vm.network "forwarded_port", guest: 9001, host: 9001
+      # ansible_d_11.ssh.host = 'localhost'
+      # ansible_d_11.vm.boot_timeout = 1800
 
-      kwork_d_11.vm.provider "virtualbox" do |vb|
+      ansible_d_11.vm.provider "virtualbox" do |vb|
         # vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
         vb.customize ["modifyvm", :id, "--uart1", "0x3F8", "4"] # bug feezes 'SSH auth method: private key'
         vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL] # bug feezes 'SSH auth method: private key'
         # vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
-        vb.name = "v_kwork-d-11"
+        vb.name = "v_ansible-d-11"
         vb.cpus = 3
         vb.memory = "2000"
       end
     end
 
-    # config.vm.define "kwork-d-10", autostart: false do |kwork_d_10|
-    config.vm.define "kwork-d-10" do |kwork_d_10|
-      kwork_d_10.vm.hostname = "kwork-d-10"
-      kwork_d_10.vm.box = "debian/buster64"
-      kwork_d_10.vm.box_check_update = false
-      kwork_d_10.vm.synced_folder ".", "/vagrant", disabled: true
-      kwork_d_10.vm.network "private_network", ip: "10.10.10.64"
-      # kwork_d_10.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
-      # kwork_d_10.vm.network "forwarded_port", guest: 80, host: 80
-      # kwork_d_10.vm.network "forwarded_port", guest: 9001, host: 9001
-      # kwork_d_10.ssh.host = 'localhost'
-      # kwork_d_10.vm.boot_timeout = 1800
+    # config.vm.define "ansible-d-10", autostart: false do |ansible_d_10|
+    config.vm.define "ansible-d-10" do |ansible_d_10|
+      ansible_d_10.vm.hostname = "ansible-d-10"
+      ansible_d_10.vm.box = "debian/buster64"
+      ansible_d_10.vm.box_check_update = false
+      ansible_d_10.vm.synced_folder ".", "/vagrant", disabled: true
+      ansible_d_10.vm.network "private_network", ip: "10.10.10.64"
+      # ansible_d_10.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
+      # ansible_d_10.vm.network "forwarded_port", guest: 80, host: 80
+      # ansible_d_10.vm.network "forwarded_port", guest: 9001, host: 9001
+      # ansible_d_10.ssh.host = 'localhost'
+      # ansible_d_10.vm.boot_timeout = 1800
 
-      kwork_d_10.vm.provider "virtualbox" do |vb|
+      ansible_d_10.vm.provider "virtualbox" do |vb|
         # vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
         vb.customize ["modifyvm", :id, "--uart1", "0x3F8", "4"] # bug feezes 'SSH auth method: private key'
         vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL] # bug feezes 'SSH auth method: private key'
         # vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
-        vb.name = "v_kwork-d-10"
+        vb.name = "v_ansible-d-10"
         vb.cpus = 3
         vb.memory = "2000"
       end
