@@ -1,0 +1,15 @@
+---
+version: "3.9"
+services:
+
+  ansible:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "./:/ansible:ro"
+    command: sh -c 'while true; do sleep 10 ; echo "hello"; done'
+
+      # args:
+      #   ARG_1: 1234
+...

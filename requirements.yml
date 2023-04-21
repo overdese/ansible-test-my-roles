@@ -1,0 +1,26 @@
+---
+
+roles:
+
+  # users
+  # - name: overdese.deploy-to-docker
+  #   src: https://github.com/overdese/ansible-role-deploy-to-docker.git
+  #   # version: v1.0.4
+
+  # users
+  - name: unxnn.users
+    src: https://github.com/unxnn/ansible-role-users
+    version: v1.0.4
+
+  # docker
+  - name: nickjj.docker
+    src: https://github.com/nickjj/ansible-docker.git
+    version: v2.2.0
+
+  # gitlab-runner
+  - name: riemers.gitlab-runner
+    src: https://github.com/riemers/ansible-gitlab-runner.git
+    version: v1.6.38
+
+
+...

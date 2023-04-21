@@ -1,0 +1,14 @@
+exclude_paths:
+  - .venv/
+  - .gathering-cache/
+  - .gitlab-ci.yml
+  - vendor/
+  - pip-cache
+parseable: true
+quiet: true
+skip_list:
+  - skip_ansible_lint
+  - '502'
+  - '106'
+use_default_rules: true
+verbosity: 0

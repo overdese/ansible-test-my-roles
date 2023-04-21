@@ -1,0 +1,21 @@
+---
+
+extends: default
+
+rules:
+  truthy: disable
+  line-length:
+    max: 200
+    level: warning
+  indentation:
+    spaces: 2
+    indent-sequences: true
+    level: warning
+  braces:
+    max-spaces-inside: 1
+
+ignore: |
+  .venv/
+  vendor/roles/
+  roles/debops.swapfile/
+  roles/torian.strongswan/
