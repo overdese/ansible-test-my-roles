@@ -1,6 +1,7 @@
-# Overdese's ansible repo
+# Repo for test my ansible roles
 
-Моё [ansible](http://www.ansible.com/home) репо с плейбуками для работы, тестов и обучения.
+Роли для тестов подключаются сабмодулями.
+Другие роли подключаются через гит сабтри.
 
 ## Подготовка к работе
 
