@@ -11,22 +11,28 @@ Vagrant.configure("2") do |config|
       # ansible_base.vm.box = "debian/buster64" # 11
       ansible_base.vm.box_check_update = false
       # ansible_base.vm.synced_folder ".", "/vagrant", disabled: true
-      # ansible_base.vm.network "private_network", ip: "10.10.10.60"
-      # ansible_base.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
-      # ansible_base.vm.network "forwarded_port", guest: 80, host: 80
+      # ansible_base.vm.network "public_network", ip: "10.10.10.60"
+      ansible_base.vm.network "private_network", ip: "10.11.10.60"
+      # ansible_base.vm.network "private_network", adapter: "4", ip: "10.11.10.60"
+      # config.vm.network "public_network", bridge: "Broadcom BCM5709C", adapter: "1", ip: "192.168.x.xx"
+
+
+      # ansible_base.vm.network "public_network", bridge: [
+      #   "en1: Wi-Fi (AirPort)",
+      #   "en6: Broadcom NetXtreme Gigabit Ethernet Controller",
+      # ]
+
       # ansible_base.vm.network "forwarded_port", guest: 9001, host: 9001
       # ansible_base.ssh.host = 'localhost'
       # ansible_base.vm.boot_timeout = 1800
 
-      # ansible_base.vm.provider "virtualbox" do |vb|
-      #   # vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
-      #   vb.customize ["modifyvm", :id, "--uart1", "0x3F8", "4"] # bug feezes 'SSH auth method: private key'
-      #   vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL] # bug feezes 'SSH auth method: private key'
-      #   # vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
-      #   vb.name = "v_ansible-base"
-      #   vb.cpus = 3
-      #   vb.memory = "2000"
-      # end
+      ansible_base.vm.provider :vmware_desktop do |vmware|
+        vmware.gui = true
+        vmware.cpus = 2
+        # vmware.vmx["ethernet0.virtualdev"] = "vmxnet3"
+        # vmware.ssh_info_public = true
+        vmware.linked_clone = false
+      end
     end
 
 
