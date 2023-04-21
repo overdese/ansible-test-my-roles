@@ -1,0 +1,43 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+Vagrant.configure("2") do |config|
+
+    # config.vm.define "ansible-base", autostart: false do |ansible_base|
+    config.vm.define "ansible-base" do |ansible_base|
+      ansible_base.vm.hostname = "ansible-base"
+      ansible_base.vm.box = "bento/ubuntu-22.04" # 22.04
+      # ansible_base.vm.box = "debian/buster64" # 11
+      ansible_base.vm.box_check_update = false
+      # ansible_base.vm.synced_folder ".", "/vagrant", disabled: true
+      # ansible_base.vm.network "private_network", ip: "10.10.10.60"
+      # ansible_base.vm.network "public_network", bridge: "Intel(R) I211 Gigabit Network Connection", ip: "192.168.255.151"
+      # ansible_base.vm.network "forwarded_port", guest: 80, host: 80
+      # ansible_base.vm.network "forwarded_port", guest: 9001, host: 9001
+      # ansible_base.ssh.host = 'localhost'
+      # ansible_base.vm.boot_timeout = 1800
+
+      # ansible_base.vm.provider "virtualbox" do |vb|
+      #   # vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
+      #   vb.customize ["modifyvm", :id, "--uart1", "0x3F8", "4"] # bug feezes 'SSH auth method: private key'
+      #   vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL] # bug feezes 'SSH auth method: private key'
+      #   # vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
+      #   vb.name = "v_ansible-base"
+      #   vb.cpus = 3
+      #   vb.memory = "2000"
+      # end
+    end
+
+
+    # # insert ssh key
+    # config.vm.provision "shell" do |s|
+    #   ssh_pub_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDH3Ze5tF0QNs+OyOq2mow53F4SPymtm4WppO47h3FL3l/Pjcge5CF28I2ulhEQLvGHhX5b2LnSyTTyWSfC1ifrAXs+5KZEzeZYgghdF6sq4Gd/bTU89ftZUD57Q7nzgA0UbmRuZHYKTyNBF+W1lXfTwZzaOJPkj5WVxaVLi1aCjqpIstVq4xMdDJj1Zr72jNpOF0PCwiL7YK2yzBrow/QMqXC9rqmlrT4b6tTDLbzwW8KQH3Jw5otrVQVSCgU+l+lVcXwnIhp14ff90kr942mx346du5rtgR5oD24EBiKcC1/szEGgUy9o4C6PkOZ60nv6gXN/iXnmgYq+fa0iSry2POVEgRK9cABP0d3wZGzyNg9IXBlRdLo0ny0vfMPxiLVdljv5yAw2YAk4rUZdY/Il0O1FOj7Z7snp3+1ugVd72EPBs9Cmr6RdLKTuNJNAU2Lvj8AZKwiuIsYGur26+pMlPqQd50yKoAbEUzhzNTibhzQ5bMbAEe/811Il+U3okvTIRgPVu5Ga6cTv0OAOw3Jx1fS4u+q2I+F+PtsIca0PG3oIhLI46CrybnilErVV2Atzbm1IGSOgWac6X7oem0MSVakl+zdOr8p5H1QioZrF9RGQH4rRml5PsrCOk+znwa9mq4T1Pv+pZbx2Lxd5Nmekdw7TeXcX3A2yB0XIWlnPEw== overdese@gmail.com"
+    #   s.inline = <<-SHELL
+    #     mkdir -p /home/vagrant/.ssh/ /root/.ssh/
+    #     echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
+    #     echo #{ssh_pub_key} >> /root/.ssh/authorized_keys
+    #   SHELL
+    # end
+
+  end

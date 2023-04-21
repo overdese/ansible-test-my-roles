@@ -3,6 +3,12 @@
 Роли для тестов подключаются сабмодулями.
 Другие роли подключаются через гит сабтри.
 
+## vmware and vagrant
+
+- install from https://developer.hashicorp.com/vagrant/downloads/vmware
+- `vagrant plugin install vagrant-vmware-desktop`
+- `vagrant.exe up --provide vmware_workstation`
+
 ## Подготовка к работе
 
 ```sh
